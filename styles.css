@@ -21,8 +21,10 @@ body {
 
 .image-sidebar {
     background-image: url("./images/halie-west-25xggax4bSA-unsplash.jpg");
+    background-size: cover;
+    max-width: 640px; /* photo width */
+    width: 38%; /* golden ratio */
     height: 100vh;
-    max-width: 40%;
 
     display: flex;
     flex-direction: column;
@@ -31,19 +33,20 @@ body {
 .logo {
     background-color: #00000050;
     color: #FFFFFF;
-    font-family: Norse-Bold;
-    font-size: 6rem;
+    font-family: Norse-Bold, sans-serif;
+    font-size: 5rem;
 
-    margin-top: 15vh;
-    padding: 3vh 12vw;
+    margin-top: 22vh;
+    padding: 1vh 12vw;
+    height: 16vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
-}
 
-.logo-image {
-    height: 20vh;
+    & img {
+        height: 100%;
+    }
 }
 
 .sidebar-footer {
