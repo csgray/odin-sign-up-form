@@ -5,7 +5,7 @@
 
 :root {
     --accent-color: #596D48;
-    --background-color: #EEEEEE;
+    --background-color: #F9FAFB;
     --validation-color: #b70000;
     --white: #FFFFFF;
 
@@ -26,7 +26,6 @@
 
 body {
     font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
-    line-height: 1.5;
 
     display: flex;
 }
@@ -75,7 +74,6 @@ body {
 .form {
     display: flex;
     flex-direction: column;
-    gap: 4vh;
 
     background-color: var(--background-color);
 
@@ -83,15 +81,21 @@ body {
 }
 
 .form-header {
-    padding: 2vh 4vw;
+    padding: 0 4vw;
     margin-top: auto;
+
+    font-size: var(--font-size-2);
+    font-weight: 500;
 }
 
 .form-body {
     background-color: var(--white);
+    box-shadow: 5px 5px 6px 0px #00000025;
     padding: 2vh 4vw 3vh; /* top | left and right | bottom */
+    margin: 6vh 0 2vh;
 
     font-size: var(--font-size-2);
+    font-weight: 500;
 
     display: flex;
     flex-direction: column;
@@ -107,13 +111,14 @@ body {
         font-size: var(--font-size-0);
         text-transform: uppercase;
         letter-spacing: 0.1rem;
+        line-height: 1.5;
 
         display: block;
     }
 
     & input {
         padding: 0.4rem 0.6rem;
-        border: 1px solid var(--background-color);
+        border: 1px solid #00000025;
         border-radius: 3px;
 
         font-size: var(--font-size-1);
@@ -156,16 +161,18 @@ body {
 
     & button {
         width: fit-content;
-        padding: 1vh 3vw;
+        padding: 1.5vh 3vw;
         border: none;
         border-radius: 5px;
     
         background-color: var(--accent-color);
         color: #fff;
+        font-weight: 600;
     }
 
     & a {
         color: var(--accent-color);
         text-decoration: none;
+        font-weight: 500;
     }
 }
