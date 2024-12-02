@@ -5,6 +5,17 @@
 
 :root {
     --accent-color: #596D48;
+    --background-color: #EEEEEE;
+    --validation-color: #b70000;
+    --white: #FFFFFF;
+
+    /* Golden Ratio typographic scale */
+    --font-size-0: 0.618rem;
+    --font-size-1: 1.000rem;
+    --font-size-2: 1.618rem;
+    --font-size-3: 2.617rem;
+    --font-size-4: 4.236rem;
+    --font-size-5: 6.854rem;
 }
 
 * {
@@ -15,6 +26,7 @@
 
 body {
     font-family: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+    line-height: 1.5;
 
     display: flex;
 }
@@ -22,8 +34,7 @@ body {
 .image-sidebar {
     background-image: url("./images/halie-west-25xggax4bSA-unsplash.jpg");
     background-size: cover;
-    max-width: 640px; /* photo width */
-    width: 38%; /* golden ratio */
+    width: clamp(200px, 38.2%, 640px); /* golden ratio */
     height: 100vh;
 
     display: flex;
@@ -32,13 +43,13 @@ body {
 
 .logo {
     background-color: #00000050;
-    color: #FFFFFF;
+    color: var(--white);
     font-family: Norse-Bold, sans-serif;
     font-size: 5rem;
 
-    margin-top: 22vh;
+    height: 14.6vh;
     padding: 1vh 12vw;
-    height: 16vh;
+    margin-top: calc(38.2vh - 14.6vh); /* Golden Ratio minus height */ 
 
     display: flex;
     justify-content: center;
@@ -50,14 +61,14 @@ body {
 }
 
 .sidebar-footer {
-    color: #FFFFFF;
+    color: var(--white);
     font-size: 0.8rem;
     text-align: center;
     margin-top: auto;
     margin-bottom: 2vh;
 
     & a {
-        color: #FFFFFF;   
+        color: var(--white);   
     }
 }
 
@@ -66,7 +77,9 @@ body {
     flex-direction: column;
     gap: 4vh;
 
-    background-color: #EEEEEE;
+    background-color: var(--background-color);
+
+    font-size: 1rem;
 }
 
 .form-header {
@@ -75,8 +88,10 @@ body {
 }
 
 .form-body {
-    background-color: #fff;
-    padding: 2vh 4vw;
+    background-color: var(--white);
+    padding: 2vh 4vw 3vh; /* top | left and right | bottom */
+
+    font-size: var(--font-size-2);
 
     display: flex;
     flex-direction: column;
@@ -86,10 +101,48 @@ body {
 .form-row {
     display: flex;
     flex-direction: row;
+    gap: 6vw;
 
-    & label,
+    & label {
+        font-size: var(--font-size-0);
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+
+        display: block;
+    }
+
     & input {
+        padding: 0.4rem 0.6rem;
+        border: 1px solid var(--background-color);
+        border-radius: 3px;
+
+        font-size: var(--font-size-1);
+
         display:block;
+    }
+
+    & .validation {
+        padding: 0;
+        margin: 0;
+        width: 20em; /* Same as inputs */
+
+        font-size: var(--font-size-0);
+        color: var(--validation-color);
+
+        display: none;
+    }
+
+    & input:focus {
+        outline: 1px solid #0000FF;
+        box-shadow: 3px 3px 6px 0px #00000050;
+    }
+
+    & input:user-invalid {
+        outline: 1px solid var(--validation-color);
+    }
+
+    & input:user-invalid + .validation {
+        display: block;
     }
 }
 
